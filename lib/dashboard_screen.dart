@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
-import 'socket_service.dart';
+
+
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
@@ -9,12 +10,14 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  final SocketService _socketService = SocketService();
 
   @override
   void initState() {
     super.initState();
-    // Listen for popup trigger from background service
+
+
+
+
     FlutterBackgroundService().on('showPopup').listen((event) {
       if (event != null && mounted) {
         showDialog(
@@ -33,8 +36,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       }
     });
   }
-
-
 
   @override
   Widget build(BuildContext context) {
